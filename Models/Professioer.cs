@@ -1,0 +1,35 @@
+using System;
+
+namespace Commander.Models{
+
+
+
+    public class professional{
+
+
+          public int Id { get; set; }
+        // public int Rate { get; set; }
+        public string Email { get; set; }
+        public string City { get; set; }
+        public string Password { get; set; }
+
+
+         public string Phone { get; set; }
+
+
+        public string ProfessionId { get; set; }
+        public string FullName { get; set; }
+
+         public string Details { get; set; }
+
+        public string UserId { get; set; }
+        public int Status { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public professional()
+        {
+            CreatedAt = DateTime.Now;
+        }
+    }
+}
