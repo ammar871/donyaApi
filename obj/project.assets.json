@@ -1690,6 +1690,9 @@
           "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll": {}
         }
       },
+      "System.Web.Http/4.0.0": {
+        "type": "package"
+      },
       "System.Windows.Extensions/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -6085,6 +6088,18 @@
         "system.threading.tasks.extensions.nuspec"
       ]
     },
+    "System.Web.Http/4.0.0": {
+      "sha512": "KDoOc/zHxA4tdnXsazg8+Mvqby7IruaFS1NQQd3LgWK0SplCeHYvGAv+q+OlmNeedL1cugnglHsp+K6WzX97aQ==",
+      "type": "package",
+      "path": "system.web.http/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "System.Web.Http.dll",
+        "system.web.http.4.0.0.nupkg.sha512",
+        "system.web.http.nuspec"
+      ]
+    },
     "System.Windows.Extensions/4.7.0": {
       "sha512": "CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "type": "package",
@@ -6374,7 +6389,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 5.0.7",
       "Microsoft.EntityFrameworkCore.sqlserver >= 5.0.7",
       "Microsoft.Extensions.Identity.Stores >= 5.0.9",
-      "Swashbuckle.AspNetCore >= 5.6.3"
+      "Swashbuckle.AspNetCore >= 5.6.3",
+      "System.Web.Http >= 4.0.0"
     ]
   },
   "packageFolders": {
@@ -6471,6 +6487,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[5.6.3, )"
+          },
+          "System.Web.Http": {
+            "target": "Package",
+            "version": "[4.0.0, )"
           }
         },
         "imports": [

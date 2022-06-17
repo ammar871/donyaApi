@@ -15,6 +15,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
+using System.Text.Json;
+ 
+
+
+
 namespace Commander.Controllers
 {
     [Route("api")]
@@ -56,6 +62,9 @@ namespace Commander.Controllers
 
         }
 
+     
+
+           
 
         [HttpGet]
         [Route("get-adds-home")]
@@ -194,10 +203,6 @@ namespace Commander.Controllers
 
 
 
-
-
-
-
         [Authorize(Roles = "user")]
         [HttpPost]
         [Route("delete-add")]
@@ -305,12 +310,31 @@ namespace Commander.Controllers
         }
 
 
+  [HttpGet("get-adds-page")]  
+public  async Task<IActionResult> GetCustomer([FromQuery]PagingParameterModel  @params)  
+{  
+     
+    // Return List of Customer  
+    var data = _context.Adds.OrderBy(p => p.Id);  ;  
+  
+ var paginationMetadata = new PaginationMetadata(data.Count(), @params.Page, @params.ItemsPerPage);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
 
+            var items = await data.Skip((@params.Page - 1) * @params.ItemsPerPage)
+                                       .Take(@params.ItemsPerPage)
+                                       .ToListAsync();
+    return Ok(new {
 
-
-
-
-
-
-    }
-}
+        items=items,
+        currentPage=@params.Page,
+        totalPage=paginationMetadata.TotalPages
+    });   
+      
+    }  
+ }  
+}  
+   
+   
+   
+   
+    
